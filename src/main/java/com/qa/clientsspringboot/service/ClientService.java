@@ -4,10 +4,12 @@ import com.qa.clientsspringboot.domain.Client;
 import com.qa.clientsspringboot.repo.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.objenesis.SpringObjenesis;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ClientService implements ClientServiceInterface{
 
     private ClientRepository clientRepository;
