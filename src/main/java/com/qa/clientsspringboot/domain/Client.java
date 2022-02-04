@@ -4,6 +4,7 @@ package com.qa.clientsspringboot.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Objects;
 
 @Entity
 @Table(name = "client")
@@ -87,5 +88,26 @@ public class Client {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return age == client.age && Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(dob, client.dob);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, email, dob, age);
+    }
 }
