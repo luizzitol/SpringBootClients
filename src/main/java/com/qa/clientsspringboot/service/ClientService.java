@@ -1,10 +1,20 @@
 package com.qa.clientsspringboot.service;
 
 import com.qa.clientsspringboot.domain.Client;
+import com.qa.clientsspringboot.repo.ClientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class ClientService implements ClientServiceInterface{
+
+    private ClientRepository clientRepository;
+
+    @Autowired
+    public ClientService(ClientRepository clientRepository){
+        this.clientRepository = clientRepository;
+    }
+
     @Override
     public Client createClient(Client client) {
         return null;
