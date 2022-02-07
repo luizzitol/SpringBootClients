@@ -1,6 +1,8 @@
 package com.qa.clientsspringboot.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
@@ -22,6 +24,7 @@ public class Client {
     private String email;
 
     @Column(name = "dob")
+    @JsonIgnore
     private LocalDate dob;
 
     @Transient
