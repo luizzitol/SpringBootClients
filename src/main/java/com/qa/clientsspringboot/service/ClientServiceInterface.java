@@ -11,7 +11,8 @@ public interface ClientServiceInterface {
     //Read
     Client getClientById(Long id);
     List<Client> getAllClients();
-    List<Client> getClientsByName(String name);
+    //List<Client> getClientsByName(String name);
+    Client getClientByEmail(String email);
 
     //Update
     Client updateClient(Long id, Client client);
