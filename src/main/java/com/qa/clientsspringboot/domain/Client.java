@@ -63,6 +63,10 @@ public class Client {
         this.dob = dob;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -101,11 +105,11 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return age == client.age && Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(dob, client.dob);
+        return Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(dob, client.dob);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, email, dob, age);
+        return Objects.hash(name, email, dob);
     }
 }
