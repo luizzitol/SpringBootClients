@@ -2,6 +2,7 @@ package com.qa.clientsspringboot.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -24,7 +25,6 @@ public class Client {
     private String email;
 
     @Column(name = "dob")
-    @JsonIgnore
     private LocalDate dob;
 
     @Transient
@@ -46,50 +46,49 @@ public class Client {
         this.dob = dob;
     }
 
+    //Auto-calculated age from dob
     public int getAge() {
         return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
-    public Client setAge(int age) {
-        this.age = age;
-        return this;
+    //does not return dob field on json
+    @JsonIgnore
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    //use dob when constructing the object
+    @JsonProperty
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Client setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
     public String getName() {
         return name;
     }
 
-    public Client setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public Client setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
-        return this;
     }
 
-    public LocalDate getDob() {
-        return dob;
-    }
 
-    public Client setDob(LocalDate dob) {
-        this.dob = dob;
-        return this;
-    }
+
 
     @Override
     public String toString() {
@@ -106,11 +105,11 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return age == client.age && Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(dob, client.dob);
+        return Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(dob, client.dob);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, email, dob, age);
+        return Objects.hash(name, email, dob);
     }
 }

@@ -13,7 +13,4 @@ public class EmailTakenException extends RuntimeException{
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
