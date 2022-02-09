@@ -10,6 +10,9 @@ Everything went well and for future revisions I would like to implement Spring S
 
 It includes a front end made with react.
 
+You can see a full live demo on: 
+
+https://damp-falls-49318.herokuapp.com
 
 ### ERD
 
@@ -20,7 +23,7 @@ It includes a front end made with react.
 In order to run the API you will need to have java 17 installed in your machine and use the following line in your command line:
 
 ```
-java -jar ClientsSpringBoot-3.0.0.jar
+java -jar ClientsSpringBoot-3.0.1.jar
 ```
 
 ### Built with
