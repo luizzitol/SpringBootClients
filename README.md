@@ -12,7 +12,7 @@ It includes a front end made with react.
 
 You can see a full live demo on: 
 
-https://damp-falls-49318.herokuapp.com
+https://qa-project-luis.herokuapp.com
 
 ### ERD
 
